@@ -2,13 +2,54 @@ user daemon
 pidfile /var/tmp/sniproxy.pid
 
 listener 80 {
-    proto http
+	proto http
+	table https_hosts
 }
 
 listener 443 {
-    proto tls
+	proto tls
+	table https_hosts
+}
+
+table https_hosts {
+    # Netflix
+    (.*\.|)netflix.com$ *
+    (.*\.|)netflix.net$ *
+    (.*\.|)nflximg.net$ *
+    (.*\.|)nflxvideo.net$ *
+    (.*\.|)nflxso.net$ *
+    (.*\.|)nflxext.com$ *
+
+	# HBO
+	(.*\.|)hbonow.com$ *
+	(.*\.|)hbogo.com$ *
+
+	# Amazon
+	(.*\.|)amazon.com$ *
+	(.*\.|)ssl-images-amazon.com$ *
+	(.*\.|)amazon.co.uk$ *
+
+	# Pandora
+	(.*\.|)pandora.com$ *
+
+	# Disney
+	(.*\.|)go.com$ *
+	(.*\.|)disney.com$ *
+	(.*\.|)disneyjunior.com$ *
+
+	# Hulu
+	(.*\.|)hulu.com$ *
+	(.*\.|)huluim.com$ *
+
+	# IP Info
+	(.*\.|)ipinfo.io$ *
 }
 
 table {
     .* *
+}
+
+resolver {
+  nameserver 8.8.8.8
+  mode ipv4_only
 }
