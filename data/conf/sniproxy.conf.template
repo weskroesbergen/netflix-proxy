@@ -12,13 +12,13 @@ listener 443 {
 }
 
 table https_hosts {
-    # Netflix
-    (.*\.|)netflix.com$ *
-    (.*\.|)netflix.net$ *
-    (.*\.|)nflximg.net$ *
-    (.*\.|)nflxvideo.net$ *
-    (.*\.|)nflxso.net$ *
-    (.*\.|)nflxext.com$ *
+	# Netflix
+	(.*\.|)netflix.com$ *
+	(.*\.|)netflix.net$ *
+	(.*\.|)nflximg.net$ *
+	(.*\.|)nflxvideo.net$ *
+	(.*\.|)nflxso.net$ *
+	(.*\.|)nflxext.com$ *
 
 	# HBO
 	(.*\.|)hbonow.com$ *
@@ -43,13 +43,14 @@ table https_hosts {
 
 	# IP Info
 	(.*\.|)ipinfo.io$ *
+	(.*\.|)ip2location.com$ *
 }
 
 table {
-    .* *
+	.* *
 }
 
 resolver {
-  nameserver 8.8.8.8
-  mode ipv4_only
+	nameserver 8.8.8.8
+	mode ipv4_only
 }
