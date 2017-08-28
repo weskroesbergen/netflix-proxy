@@ -39,6 +39,7 @@ table https_hosts {
 
 	# Hulu
 	(.*\.|)hulu.com$ *
+	(.*\.|)vortex.hulu.com$ *
 	(.*\.|)huluim.com$ *
 
 	# IP Info
